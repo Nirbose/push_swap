@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 15:46:06 by ltuffery          #+#    #+#              #
-#    Updated: 2022/11/15 15:08:16 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/11/16 20:43:46 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ NAME =libft.a
 
 SRC = ft_isalpha.c \
 	  ft_atoi.c \
+	  ft_atol.c \
       ft_isdigit.c \
       ft_isalnum.c \
       ft_isascii.c \

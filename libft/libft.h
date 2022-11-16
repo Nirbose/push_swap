@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 11:44:52 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/03 23:16:05 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/15 13:25:01 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 int		ft_putchar_fd(char c, int fd);
 int		ft_putstr_fd(char *s, int fd);
 int		ft_putendl_fd(char *s, int fd);
-int		ft_putnbr_fd(int n, int fd);
+void	ft_putnbr_fd(int n, int fd);
 
 // BONNUS FUNCTIONS
 t_list	*ft_lstnew(void *content);

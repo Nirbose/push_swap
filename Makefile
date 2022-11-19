@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 16:21:27 by ltuffery          #+#    #+#              #
-#    Updated: 2022/11/19 16:19:41 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/11/19 19:09:16 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CFLAGS =	-Wall -Wextra -Werror -ggdb3
 
 CC =	clang
 
-SRC =	main.c \
-		ft_error.c \
-		ft_free.c
+SRC =	src/push_swap.c \
+		src/ft_error.c \
+		src/ft_clean.c
 
 OBJ =	$(SRC:.c=.o)
 

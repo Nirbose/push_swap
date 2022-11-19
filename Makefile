@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 16:21:27 by ltuffery          #+#    #+#              #
-#    Updated: 2022/11/16 21:21:28 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/11/19 16:19:41 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CFLAGS =	-Wall -Wextra -Werror -ggdb3
 CC =	clang
 
 SRC =	main.c \
-		ft_error.c
+		ft_error.c \
+		ft_free.c
 
 OBJ =	$(SRC:.c=.o)
 

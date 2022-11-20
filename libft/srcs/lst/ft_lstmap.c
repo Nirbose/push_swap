@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 17:54:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 20:13:06 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/10/02 15:32:12 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/11/19 19:43:54 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "../../includes/libft.h"
 
-int	ft_has_alpha(char *str)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	int	i;
+	t_list	*new_list;
+	t_list	*new_elem;
 
-	i = 0;
-	while (str[i] != '\0')
+	if (lst == NULL || f == NULL || del == NULL)
+		return (NULL);
+	new_list = NULL;
+	while (lst != NULL)
 	{
-		if (ft_isdigit(str[i]) == 0 && str[i] != ' ' && str[i] != '-')
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	ft_exist_in(char *str, t_list *lst)
-{
-	int	n;
-
-	n = ft_atoi(str);
-	lst = lst->next;
-	while (lst)
-	{
-		if (n == ft_atoi(lst->content))
-			return (1);
+		new_elem = ft_lstnew(f(lst->content));
+		if (new_elem == NULL)
+		{
+			ft_lstclear(&new_list, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new_list, new_elem);
 		lst = lst->next;
 	}
-	return (0);
+	return (new_list);
 }

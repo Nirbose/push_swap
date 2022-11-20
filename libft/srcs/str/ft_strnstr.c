@@ -1,42 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 17:54:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 20:13:06 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/09/27 12:56:13 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/11/19 19:46:34 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "../../includes/libft.h"
 
-int	ft_has_alpha(char *str)
+char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
+	size_t	i;
+	size_t	j;
+	size_t	little_len;
 
 	i = 0;
-	while (str[i] != '\0')
+	little_len = ft_strlen(little);
+	if (little_len == 0)
+		return ((char *)big);
+	while (i < len && big[i] != '\0')
 	{
-		if (ft_isdigit(str[i]) == 0 && str[i] != ' ' && str[i] != '-')
-			return (1);
+		j = 0;
+		while (j + i < len && big[i + j] == little[j] && little[j] != '\0')
+			j++;
+		if (little[j] == '\0')
+			return ((char *)&big[i]);
 		i++;
 	}
-	return (0);
-}
-
-int	ft_exist_in(char *str, t_list *lst)
-{
-	int	n;
-
-	n = ft_atoi(str);
-	lst = lst->next;
-	while (lst)
-	{
-		if (n == ft_atoi(lst->content))
-			return (1);
-		lst = lst->next;
-	}
-	return (0);
+	return (NULL);
 }

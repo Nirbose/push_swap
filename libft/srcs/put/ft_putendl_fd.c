@@ -1,22 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 20:13:20 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/09/30 19:08:23 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/11/19 19:44:45 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../../includes/libft.h"
 
-# include "../libft/includes/libft.h"
+int	ft_putendl_fd(char *s, int fd)
+{
+	size_t	size;
 
-int		ft_has_alpha(char *str);
-int		ft_exist_in(char *str, t_list *lst);
-void	ft_free_node(t_list *lst);
-
-#endif
+	if (s == NULL)
+		return (0);
+	size = ft_strlen(s);
+	write(fd, s, size);
+	write(fd, "\n", 1);
+	return (size + 1);
+}

@@ -1,22 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 20:13:20 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/10/02 15:26:21 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/11/19 19:43:43 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../../includes/libft.h"
 
-# include "../libft/includes/libft.h"
+void	ft_lstiter(t_list *lst, void (*f)(void *))
+{
+	t_list	*tmp;
 
-int		ft_has_alpha(char *str);
-int		ft_exist_in(char *str, t_list *lst);
-void	ft_free_node(t_list *lst);
-
-#endif
+	if (lst != NULL && f != NULL)
+	{
+		tmp = lst;
+		while (tmp != NULL)
+		{
+			f(tmp->content);
+			tmp = tmp->next;
+		}
+	}
+}

@@ -6,67 +6,58 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 15:46:06 by ltuffery          #+#    #+#              #
-#    Updated: 2022/11/16 20:43:46 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/11/20 16:20:18 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-MAKEFLAGS = --no-print-directory
+NAME = libft.a
 
-NAME =libft.a
+SRCS = srcs/ft_atoi.c \
+	  srcs/ft_atol.c \
+	  srcs/ft_bzero.c \
+	  srcs/ft_calloc.c \
+	  srcs/ft_split.c \
+	  srcs/ft_itoa.c \
+	  srcs/is/ft_isalpha.c \
+      srcs/is/ft_isdigit.c \
+      srcs/is/ft_isalnum.c \
+      srcs/is/ft_isascii.c \
+	  srcs/is/ft_isprint.c \
+      srcs/mem/ft_memchr.c \
+      srcs/mem/ft_memcmp.c \
+      srcs/mem/ft_memset.c \
+      srcs/mem/ft_memcpy.c \
+      srcs/mem/ft_memmove.c \
+      srcs/to/ft_toupper.c \
+      srcs/to/ft_tolower.c \
+      srcs/str/ft_strlen.c \
+      srcs/str/ft_strchr.c \
+      srcs/str/ft_strrchr.c \
+      srcs/str/ft_strncmp.c \
+	  srcs/str/ft_strlcpy.c \
+	  srcs/str/ft_strlcat.c \
+      srcs/str/ft_strnstr.c \
+	  srcs/str/ft_strdup.c \
+	  srcs/str/ft_substr.c \
+	  srcs/str/ft_strjoin.c \
+	  srcs/str/ft_strtrim.c \
+	  srcs/str/ft_strmapi.c \
+	  srcs/str/ft_striteri.c \
+	  srcs/put/ft_putchar_fd.c \
+	  srcs/put/ft_putstr_fd.c \
+	  srcs/put/ft_putendl_fd.c \
+	  srcs/put/ft_putnbr_fd.c \
+	  srcs/lst/ft_lstnew.c \
+	  srcs/lst/ft_lstadd_front.c \
+	  srcs/lst/ft_lstsize.c \
+	  srcs/lst/ft_lstlast.c \
+	  srcs/lst/ft_lstadd_back.c \
+	  srcs/lst/ft_lstdelone.c \
+	  srcs/lst/ft_lstclear.c \
+	  srcs/lst/ft_lstiter.c \
+	  srcs/lst/ft_lstmap.c
 
-SRC = ft_isalpha.c \
-	  ft_atoi.c \
-	  ft_atol.c \
-      ft_isdigit.c \
-      ft_isalnum.c \
-      ft_isascii.c \
-	  ft_isprint.c \
-      ft_strlen.c \
-      ft_memset.c \
-	  ft_bzero.c \
-      ft_memcpy.c \
-      ft_memmove.c \
-      ft_toupper.c \
-      ft_tolower.c \
-      ft_strchr.c \
-      ft_strrchr.c \
-      ft_strncmp.c \
-      ft_memchr.c \
-      ft_memcmp.c \
-	  ft_strlcpy.c \
-	  ft_strlcat.c \
-      ft_strnstr.c \
-	  ft_calloc.c \
-	  ft_strdup.c \
-	  ft_substr.c \
-	  ft_strjoin.c \
-	  ft_strtrim.c \
-	  ft_split.c \
-	  ft_itoa.c \
-	  ft_strmapi.c \
-	  ft_striteri.c \
-	  ft_putchar_fd.c \
-	  ft_putstr_fd.c \
-	  ft_putendl_fd.c \
-	  ft_putnbr_fd.c
-
-BONUS_SRC =	ft_lstnew_bonus.c \
-			ft_lstadd_front_bonus.c \
-			ft_lstsize_bonus.c \
-			ft_lstlast_bonus.c \
-			ft_lstadd_back_bonus.c \
-			ft_lstdelone_bonus.c \
-			ft_lstclear_bonus.c \
-			ft_lstiter_bonus.c \
-			ft_lstmap_bonus.c
-
-ifdef VAR
-	SRC += $(BONUS_SRC)
-endif
-
-OBJ = $(SRC:.c=.o) 
-
-BONUS_OBJ = $(BONUS_SRC:.c=.o)
+OBJS = $(SRCS:.c=.o) 
 
 CC = clang
 
@@ -74,17 +65,14 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ) 
-
-bonus: $(OBJ) $(BONUS_OBJ)
-	@make VAR=true 
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS) 
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJ) $(BONUS_OBJ)
+	rm -f $(OBJS)
 
 fclean: clean
 	rm -f $(NAME)

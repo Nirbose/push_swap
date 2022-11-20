@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error.c                                         :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/13 17:54:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 20:13:06 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/09/28 18:06:19 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/11/19 19:46:04 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "../../includes/libft.h"
 
-int	ft_has_alpha(char *str)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	int	i;
+	size_t	dst_len;
+	size_t	i;
 
+	if (!dst && !size)
+		return (0);
+	dst_len = ft_strlen(dst);
 	i = 0;
-	while (str[i] != '\0')
+	if (dst_len >= size)
+		return (size + ft_strlen(src));
+	while ((dst_len + i) < size - 1 && src[i] != '\0')
 	{
-		if (ft_isdigit(str[i]) == 0 && str[i] != ' ' && str[i] != '-')
-			return (1);
+		dst[dst_len + i] = src[i];
 		i++;
 	}
-	return (0);
-}
-
-int	ft_exist_in(char *str, t_list *lst)
-{
-	int	n;
-
-	n = ft_atoi(str);
-	lst = lst->next;
-	while (lst)
-	{
-		if (n == ft_atoi(lst->content))
-			return (1);
-		lst = lst->next;
-	}
-	return (0);
+	dst[dst_len + i] = '\0';
+	return (dst_len + ft_strlen(src));
 }

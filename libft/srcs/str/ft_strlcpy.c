@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 20:13:20 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/09/28 17:20:22 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/11/19 19:46:14 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../../includes/libft.h"
 
-# include "../libft/includes/libft.h"
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+{
+	size_t	src_len;
+	size_t	size_selected;
+	size_t	i;
 
-int		ft_has_alpha(char *str);
-int		ft_exist_in(char *str, t_list *lst);
-void	ft_free_node(t_list *lst);
-
-#endif
+	src_len = ft_strlen(src);
+	i = 0;
+	if (size == 0)
+		return (src_len);
+	if (src_len >= size)
+		size_selected = size - 1;
+	else
+		size_selected = src_len;
+	while (i < size_selected)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = '\0';
+	return (src_len);
+}

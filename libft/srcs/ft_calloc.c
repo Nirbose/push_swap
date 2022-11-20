@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 20:13:20 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/09/28 23:16:57 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/11/19 19:42:43 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/libft.h"
 
-# include "../libft/includes/libft.h"
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	unsigned char	*tab;
+	size_t			i;
 
-int		ft_has_alpha(char *str);
-int		ft_exist_in(char *str, t_list *lst);
-void	ft_free_node(t_list *lst);
-
-#endif
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if ((int)nmemb < 0 && (int)size < 0)
+		return (NULL);
+	tab = malloc(nmemb * size);
+	i = 0;
+	if (tab == NULL)
+		return (NULL);
+	while (i < (nmemb * size))
+	{
+		tab[i] = '\0';
+		i++;
+	}
+	return ((void *)tab);
+}

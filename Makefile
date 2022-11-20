@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 16:21:27 by ltuffery          #+#    #+#              #
-#    Updated: 2022/11/19 19:09:16 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/11/19 20:14:53 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ OBJ =	$(SRC:.c=.o)
 all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	make bonus -C libft
+	make -C libft
 	clang $^ libft/libft.a -o $(NAME)
 	make fclean -C libft
 

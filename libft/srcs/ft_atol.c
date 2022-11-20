@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 20:13:20 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/11/20 16:18:52 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/11/20 16:19:08 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../includes/libft.h"
 
-# include "../libft/includes/libft.h"
+long	ft_atol(const char *nptr)
+{
+	int		i;
+	int		sign;
+	long	total;
 
-int		ft_has_alpha(char *str);
-int		ft_exist_in(char *str, t_list *lst);
-void	ft_free_node(t_list *lst);
-
-#endif
+	i = 0;
+	sign = 1;
+	total = 0;
+	while (nptr[i] == ' ' || (nptr[i] >= '\a' && nptr[i] <= '\r'))
+		i++;
+	if (nptr[i] == '-')
+		sign *= -1;
+	if (nptr[i] == '+' || nptr[i] == '-')
+		i++;
+	while (ft_isdigit(nptr[i]))
+	{
+		total = total * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (total * sign);
+}

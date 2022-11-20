@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 20:13:20 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/09/27 12:35:34 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/11/19 19:44:12 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#include "../../includes/libft.h"
 
-# include "../libft/includes/libft.h"
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	size_t				i;
+	unsigned char		*tmp;
 
-int		ft_has_alpha(char *str);
-int		ft_exist_in(char *str, t_list *lst);
-void	ft_free_node(t_list *lst);
-
-#endif
+	i = 0;
+	tmp = (unsigned char *)s;
+	if (n == 0)
+		return (NULL);
+	while (i < n)
+	{
+		if (tmp[i] == (unsigned char)c)
+			return ((void *)&tmp[i]);
+		i++;
+	}
+	return (NULL);
+}

@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clean.c                                         :+:      :+:    :+:   */
+/*   ft_sort.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/19 16:15:41 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/21 15:57:56 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/11/21 15:42:53 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/11/21 18:01:16 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
+#include "../include/push_swap.h"
 
-void	del(void *content)
+void	ft_start_sort(t_list *stack_a)
 {
-	free(content);
-}
+	t_list	*stack_b;
+	int		stack_a_size;
 
-void	ft_clean_stack(t_list *lst)
-{
-	ft_lstclear(&lst, &del);
+	stack_a_size = ft_lstsize(stack_a);
+	if (stack_a_size == 2)
+		ft_swap(&stack_a, "sa");
+	(void) stack_b;
 }

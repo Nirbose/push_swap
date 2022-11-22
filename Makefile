@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 16:21:27 by ltuffery          #+#    #+#              #
-#    Updated: 2022/11/19 20:14:53 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/11/21 17:58:42 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,10 @@ CC =	clang
 
 SRC =	src/push_swap.c \
 		src/ft_error.c \
-		src/ft_clean.c
+		src/ft_clean.c \
+		src/ft_conversion.c \
+		src/ft_sort.c \
+		src/push_swap_utils.c
 
 OBJ =	$(SRC:.c=.o)
 

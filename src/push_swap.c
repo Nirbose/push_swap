@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:20:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 19:10:44 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/21 15:58:19 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,21 +67,6 @@ static char	*ft_regroups(int ac, char **av)
 	return (base);
 }
 
-static t_list	*ft_create_list(char **tab)
-{
-	t_list	*lst;
-	int		i;
-
-	lst = ft_lstnew(ft_strdup(tab[0]));
-	i = 1;
-	while (tab[i] != NULL)
-	{
-		ft_lstadd_back(&lst, ft_lstnew(ft_strdup(tab[i])));
-		i++;
-	}
-	return (lst);
-}
-
 t_list	*ft_parsing(char *params)
 {
 	char	**tab;
@@ -95,7 +80,7 @@ t_list	*ft_parsing(char *params)
 		free(params);
 		return (NULL);
 	}
-	stack_a = ft_create_list(tab);
+	stack_a = ft_convert_tab_to_lst(tab);
 	while (tab[i] != NULL)
 	{
 		free(tab[i]);
@@ -105,10 +90,24 @@ t_list	*ft_parsing(char *params)
 	free(params);
 	if (ft_check_error(stack_a) == 1)
 	{
-		ft_free_node(stack_a);
+		ft_clean_stack(stack_a);
 		return (NULL);
 	}
 	return (stack_a);
+}
+
+int	ft_is_sort(t_list *lst)
+{
+	while (lst != NULL)
+	{
+		if (lst->next != NULL)
+		{
+			if (ft_atoi(lst->content) > ft_atoi(lst->next->content))
+				return (0);
+		}
+		lst = lst->next;
+	}
+	return (1);
 }
 
 int	main(int ac, char **av)
@@ -124,9 +123,10 @@ int	main(int ac, char **av)
 	stack_a = ft_parsing(str);
 	if (stack_a == NULL)
 	{
-		ft_free_node(stack_a);
+		ft_clean_stack(stack_a);
 		return (1);
 	}
-	ft_putstr_fd(stack_a->content, 1);
-	ft_free_node(stack_a);
+	if (ft_is_sort(stack_a) == 0)
+		ft_start_sort(stack_a);
+	ft_clean_stack(stack_a);
 }

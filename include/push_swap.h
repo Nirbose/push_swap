@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 20:13:20 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/21 18:00:58 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,18 @@
 
 int		ft_has_alpha(char *str);
 int		ft_exist_in(char *str, t_list *lst);
-void	ft_free_node(t_list *lst);
+
+/*	CLEAN	*/
+void	ft_clean_stack(t_list *lst);
+void	del(void *content);
+
+/*	TRANSLATION	*/
+t_list	*ft_convert_tab_to_lst(char **tab);
+
+/*	SORT STACK	*/
+void	ft_start_sort(t_list *stack_a);
+
+/*	UTILS	*/
+void	ft_swap(t_list **stacki, char *swap_name);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/26 15:13:43 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 19:46:22 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:51:46 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t	ft_strlen(const char *s)
 	int	i;
 
 	i = 0;
+	if (s == NULL)
+		return (i);
 	while (s[i] != '\0')
 		i++;
 	return (i);

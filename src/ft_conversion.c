@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/20 16:25:35 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/21 15:29:46 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:35:41 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,19 @@ t_list	*ft_convert_tab_to_lst(char **tab)
 {
 	t_list	*lst;
 	int		i;
+	char	*dup;
 
-	lst = ft_lstnew(ft_strdup(tab[0]));
+	dup = ft_strdup(tab[0]);
+	if (dup == NULL)
+		return (NULL);
+	lst = ft_lstnew(dup);
 	i = 1;
 	while (tab[i] != NULL)
 	{
-		ft_lstadd_back(&lst, ft_lstnew(ft_strdup(tab[i])));
+		dup = ft_strdup(tab[i]);
+		if (dup == NULL)
+			return (NULL);
+		ft_lstadd_back(&lst, ft_lstnew(dup));
 		i++;
 	}
 	return (lst);

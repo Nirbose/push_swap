@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:20:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/21 15:58:19 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:06:36 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int	ft_check_error(t_list *lst)
 	while (lst != NULL)
 	{
 		nbr = ft_atol(lst->content);
-		if (ft_has_alpha(lst->content) == 1)
+		if (ft_has_alpha(lst->content) == 1 || ft_has_digit(lst->content) == 0)
 		{
 			ft_putendl_fd("Error", 2);
 			return (1);
@@ -75,19 +75,13 @@ t_list	*ft_parsing(char *params)
 
 	tab = ft_split(params, ' ');
 	i = 0;
-	if (tab == NULL)
-	{
-		free(params);
-		return (NULL);
-	}
-	stack_a = ft_convert_tab_to_lst(tab);
-	while (tab[i] != NULL)
-	{
-		free(tab[i]);
-		i++;
-	}
-	free(tab);
 	free(params);
+	if (tab == NULL)
+		return (NULL);
+	stack_a = ft_convert_tab_to_lst(tab);
+	ft_clean_tab(tab);
+	if (stack_a == NULL)
+		return (NULL);
 	if (ft_check_error(stack_a) == 1)
 	{
 		ft_clean_stack(stack_a);

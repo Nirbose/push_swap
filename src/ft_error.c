@@ -6,11 +6,25 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 17:54:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/19 20:13:06 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:59:45 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/libft.h"
+
+int	ft_has_digit(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (ft_isdigit(str[i]) == 1)
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 int	ft_has_alpha(char *str)
 {

@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:54:46 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/21 18:16:13 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:18:18 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,17 +27,22 @@ void	ft_swap(t_list **stack, char *swap_name)
 	}
 }
 
-void	ft_push(t_list **to, t_list **in, char *push_name)
+void	ft_push(t_list **to, t_list **in)
 {
-	int		size;
 	t_list	*tmp;
 
-	size = ft_lstsize(*to);
 	tmp = *to;
-	if (size > 1)
-	{
-		tmp->next = NULL;
-		ft_lstadd_front(in, tmp);
-		ft_putendl_fd(push_name, 1);
-	}
+	tmp->next = NULL;
+	*to = (*to)->next;
+	ft_lstadd_back(in, tmp);
+}
+
+void	ft_rotate(t_list **stack)
+{
+	t_list	*last;
+
+	last = ft_lstlast(*stack);
+	last->next = *stack;
+	last->next->next = NULL;
+	*stack = (*stack)->next;
 }

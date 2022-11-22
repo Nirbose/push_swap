@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/21 18:00:58 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/22 18:06:52 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,13 @@
 
 # include "../libft/includes/libft.h"
 
+int		ft_has_digit(char *str);
 int		ft_has_alpha(char *str);
 int		ft_exist_in(char *str, t_list *lst);
 
 /*	CLEAN	*/
 void	ft_clean_stack(t_list *lst);
+void	ft_clean_tab(char **tab);
 void	del(void *content);
 
 /*	TRANSLATION	*/

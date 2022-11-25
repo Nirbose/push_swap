@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_sort.c                                          :+:      :+:    :+:   */
+/*   test_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/21 15:42:53 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/25 13:08:45 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/11/25 13:10:01 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/11/25 13:16:24 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
+#include <stdio.h>
 
-void	ft_start_sort(t_list *stack_a)
+int	main(void)
 {
-	int		stack_a_size;
+	t_list	*stack_a;
+	t_list	*stack_b;
+	char	*str;
 
-	stack_a_size = ft_lstsize(stack_a);
-	if (stack_a_size == 2)
-		ft_swap(&stack_a, "sa");
-}
-
-int	ft_is_sort(t_list *stack_a)
-{
-	while (stack_a != NULL)
-	{
-		if (stack_a->next != NULL)
-		{
-			if (ft_atoi(stack_a->content) > ft_atoi(stack_a->next->content))
-				return (0);
-		}
-		stack_a = stack_a->next;
-	}
-	return (1);
+	str = ft_strdup("1");
+	stack_a = ft_lstnew(str);
+	stack_b = malloc(sizeof(t_list));
+	ft_push(&stack_a, &stack_b);
+	printf("%s", (char *)stack_a->content);
+	printf("%s", (char *)stack_b->content);
+	free(str);
+	free(stack_a);
+	free(stack_b);
 }

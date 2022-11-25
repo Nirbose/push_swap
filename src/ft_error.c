@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 17:54:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/23 18:05:56 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/25 12:47:39 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_has_digit(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (ft_isdigit(str[i]) == 1)
+		if (ft_isdigit(str[i]) == 1 && str[i] != '-' && str[i] != '+')
 			return (1);
 		i++;
 	}
@@ -33,30 +33,37 @@ int	ft_has_alpha(char *str)
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (ft_isdigit(str[i]) == 0 && str[i] != ' ' && str[i] != '-')
+		if (ft_isdigit(str[i]) == 0 && str[i] != '-' && str[i] != '+')
 			return (1);
 		i++;
 	}
 	return (0);
 }
 
-int	ft_has_duplicate(int ac, char **av)
+int	ft_has_duplicate(char *content, t_list *stack)
 {
-	int	n;
-	int	i;
-	int	j;
+	int	nbr;
 
-	i = 1;
-	while (i < ac)
+	nbr = ft_atoi(content);
+	while (stack != NULL)
 	{
-		j = i + 1;
-		n = ft_atoi(av[i]);
-		while (j < ac)
-		{
-			if (n == ft_atoi(av[j]))
+		if (nbr == ft_atoi(stack->content))
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+int	ft_invalid_sign(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((str[i] == '+' || str[i] == '-') && i != 0)
+			if (str[i - 1] != ' ')
 				return (1);
-			j++;
-		}
 		i++;
 	}
 	return (0);

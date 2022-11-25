@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 16:21:27 by ltuffery          #+#    #+#              #
-#    Updated: 2022/11/25 12:57:02 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/11/25 13:26:19 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ SRC =	src/push_swap.c \
 
 OBJ =	$(SRC:.c=.o)
 
+TESTS =	tests/test_push.c
+
 %.o:	%.c
 	$(CC) $(CFLAGS) -c $^ -o $@
 
@@ -32,7 +34,7 @@ all:	$(NAME)
 
 $(NAME):	$(OBJ)
 	make -C libft
-	clang $^ libft/libft.a -o $(NAME)
+	$(CC) $(CFLAGS) $^ libft/libft.a -o $(NAME)
 	make fclean -C libft
 
 clean:
@@ -44,4 +46,3 @@ fclean: clean
 re: fclean all
 
 .PHONY: all clean fclean re
-

@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:54:46 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/25 13:15:01 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:24:09 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,7 @@ void	ft_swap(t_list **stack, char *swap_name)
 		(*stack)->content = (*stack)->next->content;
 		(*stack)->next->content = tmp;
 		ft_putendl_fd(swap_name, 1);
-    :x
-    :x
-
-
-
+	}
 }
 
 void	ft_push(t_list **to, t_list **in)

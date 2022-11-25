@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 17:54:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/22 17:59:45 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/23 18:05:56 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,24 @@ int	ft_has_alpha(char *str)
 	return (0);
 }
 
-int	ft_exist_in(char *str, t_list *lst)
+int	ft_has_duplicate(int ac, char **av)
 {
 	int	n;
+	int	i;
+	int	j;
 
-	n = ft_atoi(str);
-	lst = lst->next;
-	while (lst)
+	i = 1;
+	while (i < ac)
 	{
-		if (n == ft_atoi(lst->content))
-			return (1);
-		lst = lst->next;
+		j = i + 1;
+		n = ft_atoi(av[i]);
+		while (j < ac)
+		{
+			if (n == ft_atoi(av[j]))
+				return (1);
+			j++;
+		}
+		i++;
 	}
 	return (0);
 }

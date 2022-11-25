@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/22 18:06:52 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/23 17:55:28 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 int		ft_has_digit(char *str);
 int		ft_has_alpha(char *str);
-int		ft_exist_in(char *str, t_list *lst);
+int		ft_has_duplicate(int ac, char **av);
 
 /*	CLEAN	*/
 void	ft_clean_stack(t_list *lst);

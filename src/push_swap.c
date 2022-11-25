@@ -6,37 +6,37 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:20:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/22 18:06:36 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/23 18:06:23 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static int	ft_check_error(t_list *lst)
+static int	ft_check_error(int ac, char **av)
 {
+	int		i;
 	long	nbr;
+	char	*trim;
+	int		error;
 
-	while (lst != NULL)
+	i = 1;
+	error = 0;
+	while (i < ac)
 	{
-		nbr = ft_atol(lst->content);
-		if (ft_has_alpha(lst->content) == 1 || ft_has_digit(lst->content) == 0)
-		{
-			ft_putendl_fd("Error", 2);
-			return (1);
-		}
-		if (nbr > 2147483647 || nbr < -2147483648)
-		{
-			ft_putendl_fd("Error", 2);
-			return (1);
-		}
-		if (ft_exist_in(lst->content, lst) == 1)
-		{
-			ft_putendl_fd("Error", 2);
-			return (1);
-		}
-		lst = lst->next;
+		nbr = ft_atol(av[i]);
+		trim = ft_strtrim(av[i], " ");
+		if (trim[0] == '\0')
+			error = 1;
+		if (ft_has_alpha(trim) == 1)
+			error = 1;
+		if (ft_has_duplicate(ac, av) == 1)
+			error = 1;
+		if (nbr < -2147483648 || nbr > 2147483647)
+			error = 1;
+		i++;
+		free(trim);
 	}
-	return (0);
+	return (error);
 }
 
 static char	*ft_regroups(int ac, char **av)
@@ -67,14 +67,12 @@ static char	*ft_regroups(int ac, char **av)
 	return (base);
 }
 
-t_list	*ft_parsing(char *params)
+t_list	*ft_parsing(char *params, int ac, char **av)
 {
 	char	**tab;
 	t_list	*stack_a;
-	int		i;
 
 	tab = ft_split(params, ' ');
-	i = 0;
 	free(params);
 	if (tab == NULL)
 		return (NULL);
@@ -82,8 +80,9 @@ t_list	*ft_parsing(char *params)
 	ft_clean_tab(tab);
 	if (stack_a == NULL)
 		return (NULL);
-	if (ft_check_error(stack_a) == 1)
+	if (ft_check_error(ac, av) == 1)
 	{
+		ft_putendl_fd("Error", 2);
 		ft_clean_stack(stack_a);
 		return (NULL);
 	}
@@ -114,7 +113,7 @@ int	main(int ac, char **av)
 	str = ft_regroups(ac, av);
 	if (str == NULL)
 		return (0);
-	stack_a = ft_parsing(str);
+	stack_a = ft_parsing(str, ac, av);
 	if (stack_a == NULL)
 	{
 		ft_clean_stack(stack_a);

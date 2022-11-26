@@ -6,19 +6,33 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:42:53 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/25 13:08:45 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:59:11 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_start_sort(t_list *stack_a)
+void	ft_start_sort(t_list **stack_a)
 {
+	t_list	*stack_b;
 	int		stack_a_size;
+	t_list	*v;
 
-	stack_a_size = ft_lstsize(stack_a);
+	stack_a_size = ft_lstsize(*stack_a);
+	stack_b = NULL;
 	if (stack_a_size == 2)
-		ft_swap(&stack_a, "sa");
+		ft_swap(stack_a, "sa");
+	else
+	{
+		ft_putendl_fd((*stack_a)->content, 1);
+		ft_rotate(stack_a);
+		v = *stack_a;
+		while (v != NULL)
+		{
+			ft_putendl_fd(v->content, 1);
+			v = v->next;
+		}
+	}
 }
 
 int	ft_is_sort(t_list *stack_a)

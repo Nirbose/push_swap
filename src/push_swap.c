@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:20:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/25 13:07:40 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/26 12:58:31 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,6 @@ int	main(int ac, char **av)
 	}
 	else
 		if (ft_is_sort(stack_a) == 0)
-			ft_start_sort(stack_a);
+			ft_start_sort(&stack_a);
 	ft_clean_stack(stack_a);
 }

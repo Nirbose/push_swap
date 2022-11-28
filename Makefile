@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 16:21:27 by ltuffery          #+#    #+#              #
-#    Updated: 2022/11/25 13:26:19 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/11/28 16:12:25 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,11 +17,16 @@ CFLAGS =	-Wall -Wextra -Werror -ggdb3
 CC =	clang
 
 SRC =	src/push_swap.c \
+		src/push_swap_utils.c \
 		src/ft_error.c \
 		src/ft_clean.c \
 		src/ft_conversion.c \
 		src/ft_sort.c \
-		src/push_swap_utils.c
+		src/ft_parsing.c \
+		src/moves/ft_push.c \
+		src/moves/ft_reverse.c \
+		src/moves/ft_rotate.c \
+		src/moves/ft_swap.c
 
 OBJ =	$(SRC:.c=.o)
 

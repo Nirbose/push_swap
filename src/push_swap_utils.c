@@ -6,66 +6,81 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:54:46 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/26 12:57:41 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/28 16:51:09 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-void	ft_swap(t_list **stack, char *swap_name)
+void	ft_print_stack(t_list *stack)
 {
-	int		size;
-	char	*tmp;
-
-	size = ft_lstsize(*stack);
-	if (size > 1)
+	while (stack != NULL)
 	{
-		tmp = (*stack)->content;
-		(*stack)->content = (*stack)->next->content;
-		(*stack)->next->content = tmp;
-		ft_putendl_fd(swap_name, 1);
+		ft_putendl_fd(stack->content, 1);
+		stack = stack->next;
 	}
 }
 
-void	ft_push(t_list **to, t_list **in)
+int	ft_search_index(int n, t_list *stack)
 {
-	t_list	*tmp;
+	int	i;
 
-	tmp = *to;
-	*to = (*to)->next;
-	tmp->next = NULL;
-	ft_lstadd_back(in, tmp);
+	i = 0;
+	while (stack != NULL)
+	{
+		if (n == ft_atoi(stack->content))
+			return (i);
+		i++;
+		stack = stack->next;
+	}
+	return (-1);
 }
 
-void	ft_rotate(t_list **stack)
+int	ft_who_nearset(t_list *stack, int n_min, int n_max)
 {
-	t_list	*first;
-
-	first = *stack;
-	*stack = (*stack)->next;
-	first->next = NULL;
-	ft_lstadd_back(stack, first);
-}
-
-t_list	*ft_b(t_list *stack)
-{
+	int		i;
+	int		n;
+	int		is_rigth;
+	int		stack_size;
 	t_list	*tmp;
 
+	stack_size = ft_lstsize(stack);
+	n = stack_size + 1;
 	tmp = stack;
-	while (tmp->next->next != NULL)
-		tmp = tmp->next;
-	return (tmp);
-}
-
-void	ft_reverse(t_list **stack)
-{
-	t_list	*last;
-	t_list	*before;
-
-	last = ft_lstlast(*stack);
-	before = *stack;
-	while (before->next->next != NULL)
-		before = before->next;
-	ft_lstadd_front(stack, last);
-	before->next = NULL;
+	while (n_min < n_max)
+	{
+		i = 0;
+		while (tmp != NULL)
+		{
+			if (i > stack_size / 2)
+			{
+				if (n > (stack_size / 2 - i))
+				{
+					n = (stack_size / 2 - i);
+					is_rigth = 1;
+				}
+			}
+			else
+			{
+				if (n > i)
+				{
+					n = i;
+					is_rigth = 0;
+				}
+			}
+			i++;
+			tmp = tmp->next;
+		}
+		n_min++;
+	}
+	if (is_rigth == 1)
+		n = n + stack_size / 2;
+	i = 0;
+	while (i < n)
+	{
+		stack = stack->next;
+		i++;
+	}
+	n = ft_atoi(stack->content);
+	return (n);
 }

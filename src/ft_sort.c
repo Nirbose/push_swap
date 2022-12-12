@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:42:53 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/28 16:11:16 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/30 18:50:45 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,8 @@ void	ft_start_sort(t_stacks **stacks)
 	{
 		ft_min_sort(stacks);
 	}
+	else
+		ft_sort(stacks);
 	ft_lstclear(&(*stacks)->b, &del);
 }
 
@@ -93,4 +95,33 @@ int	ft_is_sort(t_list *stack_a)
 		stack_a = stack_a->next;
 	}
 	return (1);
+}
+
+void	ft_sort(t_stacks **stacks)
+{
+	int	pivo_a;
+	int	save_pivo;
+	int	pivo_b;
+	int	i;
+
+	pivo_a = ft_find_pivot(*stacks);
+	save_pivo = pivo_a;
+	pivo_b = pivo_a / 2;
+	while ((*stacks)->size_a > 0)
+	{
+		i = 0;
+		while (i < save_pivo)
+		{
+			if (ft_atoi((*stacks)->a->content) <= pivo_a)
+			{
+				pb(stacks);
+				i++;
+				if (ft_atoi((*stacks)->b->content) > pivo_a - pivo_b)
+					rb(stacks);
+			}
+			else
+				ra(stacks);
+		}
+		pivo_a += save_pivo;
+	}
 }

@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/13 16:21:27 by ltuffery          #+#    #+#              #
-#    Updated: 2022/11/28 16:12:25 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/11/30 17:50:17 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,7 @@ SRC =	src/push_swap.c \
 		src/ft_clean.c \
 		src/ft_conversion.c \
 		src/ft_sort.c \
+		src/ft_sort_utils.c \
 		src/ft_parsing.c \
 		src/moves/ft_push.c \
 		src/moves/ft_reverse.c \

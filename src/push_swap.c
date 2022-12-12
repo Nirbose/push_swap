@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:20:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/28 15:19:15 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/11/30 17:02:43 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,19 @@ void	ft_display_moves(t_stacks *stacks)
 	}
 }
 
-t_stacks	*ft_create_stacks(t_list *stack_a)
+static t_stacks	*ft_create_stacks(t_list *stack_a)
 {
 	t_stacks	*stacks;
+	int			size;
 
+	size = ft_lstsize(stack_a);
 	stacks = malloc(sizeof(t_stacks));
 	stacks->a = stack_a;
 	stacks->b = NULL;
-	stacks->size_a = ft_lstsize(stack_a);
+	stacks->size_a = size;
 	stacks->size_b = 0;
 	stacks->moves = NULL;
+	stacks->n_items = size;
 	return (stacks);
 }
 

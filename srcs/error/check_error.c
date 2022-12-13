@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:44:01 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 13:22:09 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:09:25 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,7 @@ int	ft_has_error(t_list *lst)
 			return (1);
 		if (ft_not_content_in_int(lst->content) == 1)
 			return (1);
-		if (ft_already_exist(lst->content, lst) == 1)
+		if (ft_already_exist(lst->content, lst->next) == 1)
 			return (1);
 		lst = lst->next;
 	}

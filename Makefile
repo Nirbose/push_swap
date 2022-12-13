@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/13 13:51:26 by ltuffery          #+#    #+#              #
-#    Updated: 2022/12/13 13:58:48 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/12/13 15:59:39 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME	=	push_swap
 
 CC		=	clang
 
-CFLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror -ggdb3
 
 SRCS	=	srcs/push_swap.c \
 			srcs/push_swap_utils.c \

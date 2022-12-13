@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:53:33 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 14:14:39 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:05:50 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ int	main(int ac, char **av)
 	params = ft_regroup(ac, av);
 	if (params == NULL)
 		return (0);
-	free(params);
 	stack_a = ft_parsing(params, ac, av);
 	if (stack_a == NULL)
 	{

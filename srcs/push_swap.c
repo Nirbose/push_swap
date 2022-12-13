@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:53:33 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 17:51:42 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:54:27 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	main(int ac, char **av)
 	else
 	{
 		stacks = ft_create_stacks(stack_a);
-		if (ft_is_sort(stack_a) == 0)
+		if (ft_is_sort(stacks->a) == 0)
 			ft_start_sort(&stacks);
 		ft_display_moves(stacks->moves);
 		ft_clean_all_stacks(stacks);

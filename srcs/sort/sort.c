@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:31:05 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 17:16:23 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:55:36 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_is_sort(t_list *stack)
 	{
 		if (stack->next != NULL)
 		{
-			if (ft_atoi(stack->content) < ft_atoi(stack->next->content))
+			if (ft_atoi(stack->content) > ft_atoi(stack->next->content))
 				return (0);
 		}
 		stack = stack->next;
@@ -31,7 +31,7 @@ void	ft_start_sort(t_stacks **stacks)
 	ft_normalize(&(*stacks)->a);
 	if ((*stacks)->size_a == 2)
 		sa(stacks);
-	if ((*stacks)->size_a < 6)
+	else if ((*stacks)->size_a < 6)
 		ft_small_sort(stacks);
 	else
 		ft_butterfly_sort(stacks);

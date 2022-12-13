@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:42:53 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/30 18:50:45 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/12 15:35:48 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,20 +83,6 @@ void	ft_start_sort(t_stacks **stacks)
 	ft_lstclear(&(*stacks)->b, &del);
 }
 
-int	ft_is_sort(t_list *stack_a)
-{
-	while (stack_a != NULL)
-	{
-		if (stack_a->next != NULL)
-		{
-			if (ft_atoi(stack_a->content) > ft_atoi(stack_a->next->content))
-				return (0);
-		}
-		stack_a = stack_a->next;
-	}
-	return (1);
-}
-
 void	ft_sort(t_stacks **stacks)
 {
 	int	pivo_a;
@@ -112,6 +98,8 @@ void	ft_sort(t_stacks **stacks)
 		i = 0;
 		while (i < save_pivo)
 		{
+			if ((*stacks)->a == NULL)
+				break ;
 			if (ft_atoi((*stacks)->a->content) <= pivo_a)
 			{
 				pb(stacks);
@@ -123,5 +111,25 @@ void	ft_sort(t_stacks **stacks)
 				ra(stacks);
 		}
 		pivo_a += save_pivo;
+	}
+	ft_finish_sort(stacks);
+}
+
+void	ft_finish_sort(t_stacks **stacks)
+{
+	int	i_n;
+	int	n;
+
+	while ((*stacks)->size_b > 0)
+	{
+		n = (*stacks)->size_b;
+		i_n = ft_search_index(n, (*stacks)->b);
+		if (i_n < (*stacks)->size_b / 2)
+			while (ft_atoi((*stacks)->b->content) != (*stacks)->size_b)
+				rb(stacks);
+		else
+			while (ft_atoi((*stacks)->b->content) != (*stacks)->size_b)
+				rrb(stacks);
+		pa(stacks);
 	}
 }

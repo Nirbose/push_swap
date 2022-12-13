@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/13 16:20:37 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/30 17:02:43 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 11:39:20 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_display_moves(t_stacks *stacks)
 {
-	int	i;
+	int		i;
 
 	i = 0;
 	if (stacks->moves == NULL)

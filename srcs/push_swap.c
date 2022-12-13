@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:53:33 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 14:00:03 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:14:39 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,8 +83,14 @@ int	main(int ac, char **av)
 	free(params);
 	stack_a = ft_parsing(params, ac, av);
 	if (stack_a == NULL)
+	{
+		ft_clean_stack(stack_a);
 		exit(1);
-	stacks = ft_create_stacks(stack_a);
-	ft_display_moves(stacks->moves);
-	ft_clean_all_stacks(stacks);
+	}
+	else
+	{
+		stacks = ft_create_stacks(stack_a);
+		ft_display_moves(stacks->moves);
+		ft_clean_all_stacks(stacks);
+	}
 }

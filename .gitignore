@@ -54,4 +54,4 @@ dkms.conf
 # Custom
 push_swap
 *.swp
-./push_swap-testeur-max
+push_swap-testeur-max

@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 15:42:53 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/12 15:35:48 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:56:18 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,40 +79,40 @@ void	ft_start_sort(t_stacks **stacks)
 		ft_min_sort(stacks);
 	}
 	else
+	{
+		ft_finish_sort(stacks);
 		ft_sort(stacks);
+	}
 	ft_lstclear(&(*stacks)->b, &del);
 }
 
 void	ft_sort(t_stacks **stacks)
 {
-	int	pivo_a;
-	int	save_pivo;
-	int	pivo_b;
-	int	i;
+	t_pivos	*pivos;
+	int		i;
 
-	pivo_a = ft_find_pivot(*stacks);
-	save_pivo = pivo_a;
-	pivo_b = pivo_a / 2;
+	pivos->a = ft_find_pivot(*stacks);
+	pivos->save = pivos->a;
+	pivos->b = pivos->a / 2;
 	while ((*stacks)->size_a > 0)
 	{
 		i = 0;
-		while (i < save_pivo)
+		while (i < pivos->save)
 		{
 			if ((*stacks)->a == NULL)
 				break ;
-			if (ft_atoi((*stacks)->a->content) <= pivo_a)
+			if (ft_atoi((*stacks)->a->content) <= pivos->a)
 			{
 				pb(stacks);
 				i++;
-				if (ft_atoi((*stacks)->b->content) > pivo_a - pivo_b)
+				if (ft_atoi((*stacks)->b->content) > pivos->a - pivos->b)
 					rb(stacks);
 			}
 			else
 				ra(stacks);
 		}
-		pivo_a += save_pivo;
+		pivos->a += pivos->save;
 	}
-	ft_finish_sort(stacks);
 }
 
 void	ft_finish_sort(t_stacks **stacks)

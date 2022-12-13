@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 14:38:00 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:53:50 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,13 @@ typedef struct s_stacks
 	char	**moves;
 	int		n_items;
 }	t_stacks;
+
+typedef struct s_pivos
+{
+	int	a;
+	int	b;
+	int	save;
+}	t_pivos;
 
 /*	PARSING	*/
 t_list	*ft_parsing(char *params, int ac, char **av);

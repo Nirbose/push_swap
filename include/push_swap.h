@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/30 18:43:23 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 14:38:00 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ int		ft_is_sort(t_list *stack_a);
 void	ft_start_sort(t_stacks **stacks);
 void	ft_sort_three_item(t_stacks **stacks);
 void	ft_sort(t_stacks **stacks);
+void	ft_finish_sort(t_stacks **stacks);
 
 /*	SORT STACK UTILS	*/
 int		ft_find_pivot(t_stacks *stacks);

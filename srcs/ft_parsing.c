@@ -6,11 +6,10 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:08:23 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 14:16:09 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:16:37 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
 #include "../includes/push_swap.h"
 
 static int	ft_isempty(char *str)
@@ -77,7 +76,7 @@ t_list	*ft_parsing(char *params, int ac, char **av)
 		return (NULL);
 	if (ft_check_empty_item(ac, av) == 1 || ft_has_error(stack_a) == 1)
 	{
-		ft_putendl_fd("Error", 1);
+		ft_putendl_fd("Error", 2);
 		ft_clean_stack(stack_a);
 		return (NULL);
 	}

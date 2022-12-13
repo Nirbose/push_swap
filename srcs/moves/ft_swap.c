@@ -6,11 +6,10 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 12:50:22 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 14:06:48 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:17:02 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../libft/includes/libft.h"
 #include "../../includes/push_swap.h"
 
 static void	ft_swap(t_list **stack)

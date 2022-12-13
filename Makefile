@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/13 13:51:26 by ltuffery          #+#    #+#              #
-#    Updated: 2022/12/13 15:59:39 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/12/13 17:09:18 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,11 @@ SRCS	=	srcs/push_swap.c \
 			srcs/moves/ft_push.c \
 			srcs/moves/ft_reverse.c \
 			srcs/moves/ft_rotate.c \
-			srcs/moves/ft_swap.c
+			srcs/moves/ft_swap.c \
+			srcs/sort/sort.c \
+			srcs/sort/small_sort.c \
+			srcs/sort/sort_utils.c \
+			srcs/sort/butterfly_sort.c
 
 OBJS	=	$(SRCS:.c=.o)
 

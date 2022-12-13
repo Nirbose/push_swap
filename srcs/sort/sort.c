@@ -1,46 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_clean.c                                         :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/13 13:35:44 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 17:17:14 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/12/13 16:31:05 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/12/13 17:16:23 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-static void	del(void *content)
+int	ft_is_sort(t_list *stack)
 {
-	free(content);
-}
-
-void	ft_clean_stack(t_list *stack)
-{
-	ft_lstclear(&stack, &del);
-}
-
-void	ft_clean_tab(char **tab)
-{
-	int	i;
-
-	i = 0;
-	if (tab == NULL)
-		return ;
-	while (tab[i] != NULL)
+	while (stack != NULL)
 	{
-		free(tab[i]);
-		i++;
+		if (stack->next != NULL)
+		{
+			if (ft_atoi(stack->content) < ft_atoi(stack->next->content))
+				return (0);
+		}
+		stack = stack->next;
 	}
-	free(tab);
+	return (1);
 }
 
-void	ft_clean_all_stacks(t_stacks *stacks)
+void	ft_start_sort(t_stacks **stacks)
 {
-	ft_clean_stack(stacks->a);
-	ft_clean_stack(stacks->b);
-	ft_clean_tab(stacks->moves);
-	free(stacks);
+	ft_normalize(&(*stacks)->a);
+	if ((*stacks)->size_a == 2)
+		sa(stacks);
+	if ((*stacks)->size_a < 6)
+		ft_small_sort(stacks);
+	else
+		ft_butterfly_sort(stacks);
 }

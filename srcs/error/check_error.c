@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:44:01 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 16:09:25 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 16:23:02 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,9 @@ static int	ft_has_invalid_sign(char *item)
 	int	i;
 
 	i = 1;
+	if (item[0] == '+' || item[0] == '-')
+		if (ft_isdigit(item[i]) == 0)
+			return (1);
 	while (item[i] != '\0')
 	{
 		if (item[i] == '+' || item[i] == '-')

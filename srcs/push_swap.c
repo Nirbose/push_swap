@@ -6,11 +6,10 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:53:33 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 16:05:50 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:51:42 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libft/includes/libft.h"
 #include "../includes/push_swap.h"
 
 static void	ft_display_moves(char **moves)
@@ -89,6 +88,8 @@ int	main(int ac, char **av)
 	else
 	{
 		stacks = ft_create_stacks(stack_a);
+		if (ft_is_sort(stack_a) == 0)
+			ft_start_sort(&stacks);
 		ft_display_moves(stacks->moves);
 		ft_clean_all_stacks(stacks);
 	}

@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:09:42 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 18:33:53 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:24:23 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,16 +44,12 @@ static void	ft_finish_sort(t_stacks **stacks)
 	}
 }
 
-void	ft_butterfly_sort(t_stacks **stacks)
+void	ft_butterfly_sort(t_stacks **stacks, int pivo_a, int pivo_b)
 {
-	int	pivo_a;
-	int	pivo_b;
 	int	pivo_save;
 	int	i;
 
-	pivo_a = ft_find_pivot(*stacks);
 	pivo_save = pivo_a;
-	pivo_b = pivo_a / 2;
 	while ((*stacks)->size_a > 0)
 	{
 		i = 0;

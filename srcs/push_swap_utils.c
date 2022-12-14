@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:26:19 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 17:16:47 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/14 18:00:01 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,23 @@ int	get_content(t_list *stack)
 
 	nbr = ft_atoi(stack->content);
 	return (nbr);
+}
+
+int	smart_display_move(char *move, char *next_move)
+{
+	int	len_move;
+	int	len_next_move;
+
+	if (next_move == NULL)
+		return (0);
+	len_move = ft_strlen(move);
+	len_next_move = ft_strlen(next_move);
+	if (move[0] == next_move[0] && len_next_move == len_move)
+	{
+		if (move[len_move - 1] == next_move[len_next_move - 1] + 1)
+			return (1);
+		if (move[len_move - 1] + 1 == next_move[len_next_move - 1])
+			return (1);
+	}
+	return (0);
 }

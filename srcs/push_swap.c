@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:53:33 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 17:54:27 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:53:00 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,14 @@ static void	ft_display_moves(char **moves)
 		return ;
 	while (moves[i] != NULL)
 	{
-		ft_putendl_fd(moves[i], 1);
+		if (smart_display_move(moves[i], moves[i + 1]) == 1)
+		{
+			moves[i][ft_strlen(moves[i]) - 1] = moves[i][0];
+			ft_putendl_fd(moves[i], 1);
+			i++;
+		}
+		else
+			ft_putendl_fd(moves[i], 1);
 		i++;
 	}
 }

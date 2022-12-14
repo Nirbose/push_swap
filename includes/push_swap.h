@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:11:29 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/14 16:24:12 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:07:32 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,5 +62,6 @@ void	rrr(t_stacks **stacks);
 
 /*	UTILS	*/
 int		get_content(t_list *stack);
+int		smart_display_move(char *move, char *next_move);
 
 #endif

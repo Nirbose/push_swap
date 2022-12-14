@@ -6,24 +6,11 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:09:42 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/14 16:24:23 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/14 16:30:34 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-static int	ft_find_pivot(t_stacks *stacks)
-{
-	int	div;
-	int	pivo;
-
-	div = stacks->size_a / 10 + 15;
-	div = stacks->size_a / div;
-	if (div == 0)
-		div = 3;
-	pivo = stacks->size_a / div;
-	return (pivo);
-}
 
 static void	ft_finish_sort(t_stacks **stacks)
 {

@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:31:05 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/14 16:23:56 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/16 17:43:51 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static int	ft_find_pivot(t_stacks *stacks)
 {
-	int	div;
-	int	pivo;
+	int	pivot;
+	int	diff;
 
-	div = stacks->size_a / 10 + 15;
-	div = stacks->size_a / div;
-	if (div == 0)
-		div = 3;
-	pivo = stacks->size_a / div;
-	return (pivo);
+	diff = 27;
+	pivot = stacks->size_a / 5 - diff;
+	if (pivot < 0)
+		return (pivot + diff);
+	else
+		return (pivot);
 }
 
 int	ft_is_sort(t_list *stack)

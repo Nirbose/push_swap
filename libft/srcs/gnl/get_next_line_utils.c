@@ -6,64 +6,14 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 01:03:05 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/16 14:39:07 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/16 19:15:59 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/get_next_line.h"
+#include "../../includes/libft.h"
 
-int	ft_strlen(const char *s)
-{
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
-
-	i = 0;
-	if (s == NULL)
-		return (NULL);
-	while (s[i] != '\0')
-	{
-		if (s[i] == (unsigned char)c)
-			return ((char *)&s[i]);
-		i++;
-	}
-	if (s[i] == c)
-		return ((char *)&s[i]);
-	return (NULL);
-}
-
-int	ft_strlcpy(char *dst, const char *src, int size)
-{
-	int	src_len;
-	int	size_selected;
-	int	i;
-
-	src_len = ft_strlen(src);
-	i = 0;
-	if (size == 0)
-		return (src_len);
-	if (src_len >= size)
-		size_selected = size - 1;
-	else
-		size_selected = src_len;
-	while (i < size_selected)
-	{
-		dst[i] = src[i];
-		i++;
-	}
-	dst[i] = '\0';
-	return (src_len);
-}
-
-char	*ft_strjoin(char *s1, char *s2)
+char	*ft_join(char *s1, char *s2)
 {
 	char	*new_str;
 
@@ -88,7 +38,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (new_str);
 }
 
-char	*ft_substr(char *str)
+char	*ft_subline(char *str)
 {
 	int		i;
 	int		len;

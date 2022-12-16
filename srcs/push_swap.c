@@ -6,11 +6,12 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:53:33 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/14 17:53:00 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/16 18:51:33 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include "../includes/clean.h"
 
 static void	ft_display_moves(char **moves)
 {
@@ -33,34 +34,6 @@ static void	ft_display_moves(char **moves)
 	}
 }
 
-static char	*ft_regroup(int ac, char **av)
-{
-	char	*base;
-	char	*next;
-	int		i;
-
-	if (ac > 2)
-	{
-		base = ft_calloc(1, 1);
-		i = 1;
-		while (i < ac)
-		{
-			next = ft_strjoin(base, av[i]);
-			free(base);
-			if (next == NULL)
-				return (NULL);
-			base = ft_strjoin(next, " ");
-			free(next);
-			if (base == NULL)
-				return (NULL);
-			i++;
-		}
-	}
-	else
-		base = ft_strdup(av[1]);
-	return (base);
-}
-
 static t_stacks	*ft_create_stacks(t_list *stack)
 {
 	t_stacks	*stacks;
@@ -77,16 +50,12 @@ static t_stacks	*ft_create_stacks(t_list *stack)
 
 int	main(int ac, char **av)
 {
-	char		*params;
 	t_list		*stack_a;
 	t_stacks	*stacks;
 
 	if (ac == 1)
 		return (0);
-	params = ft_regroup(ac, av);
-	if (params == NULL)
-		return (0);
-	stack_a = ft_parsing(params, ac, av);
+	stack_a = ft_parsing(ac, av);
 	if (stack_a == NULL)
 	{
 		ft_clean_stack(stack_a);

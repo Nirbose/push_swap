@@ -6,11 +6,12 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 01:02:47 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/16 14:39:00 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/16 19:15:13 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/get_next_line.h"
+#include "../../includes/libft.h"
 
 char	*ft_read_line(int fd, char *str)
 {
@@ -33,7 +34,7 @@ char	*ft_read_line(int fd, char *str)
 			return (NULL);
 		}
 		buffer[read_status] = '\0';
-		str = ft_strjoin(str, buffer);
+		str = ft_join(str, buffer);
 	}
 	free(buffer);
 	return (str);
@@ -73,6 +74,6 @@ char	*get_next_line(int fd)
 	if (str[fd] == NULL)
 		return (NULL);
 	line = ft_get_line(str[fd]);
-	str[fd] = ft_substr(str[fd]);
+	str[fd] = ft_subline(str[fd]);
 	return (line);
 }

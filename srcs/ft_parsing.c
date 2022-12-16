@@ -6,11 +6,12 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:08:23 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 17:16:37 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/16 18:51:25 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include "../includes/clean.h"
 
 static int	ft_isempty(char *str)
 {
@@ -61,11 +62,43 @@ static int	ft_check_empty_item(int ac, char **av)
 	return (0);
 }
 
-t_list	*ft_parsing(char *params, int ac, char **av)
+static char	*ft_regroup(int ac, char **av)
+{
+	char	*base;
+	char	*next;
+	int		i;
+
+	if (ac > 2)
+	{
+		base = ft_calloc(1, 1);
+		i = 1;
+		while (i < ac)
+		{
+			next = ft_strjoin(base, av[i]);
+			free(base);
+			if (next == NULL)
+				return (NULL);
+			base = ft_strjoin(next, " ");
+			free(next);
+			if (base == NULL)
+				return (NULL);
+			i++;
+		}
+	}
+	else
+		base = ft_strdup(av[1]);
+	return (base);
+}
+
+t_list	*ft_parsing(int ac, char **av)
 {
 	t_list	*stack_a;
+	char	*params;
 	char	**tab;
 
+	params = ft_regroup(ac, av);
+	if (params == NULL)
+		return (NULL);
 	tab = ft_split(params, ' ');
 	free(params);
 	if (tab == NULL)

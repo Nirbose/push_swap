@@ -1,24 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_parsing.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/16 15:57:54 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/16 19:16:10 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/12/16 16:01:19 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/12/16 16:02:16 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef FT_PARSING_H
+# define FT_PARSING_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
-
-char	*get_next_line(int fd);
-char	*ft_join(char *s1, char *s2);
-char	*ft_subline(char *str);
+/*	PARSING	*/
+t_list	*ft_parsing(int ac, char **av);
 
 #endif

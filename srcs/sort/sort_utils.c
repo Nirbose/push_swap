@@ -6,11 +6,12 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:43:45 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 17:43:20 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/16 18:51:48 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
+#include "../../includes/clean.h"
 
 void	ft_normalize(t_list **stack)
 {

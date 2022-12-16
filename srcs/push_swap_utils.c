@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:26:19 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/14 18:00:01 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/15 16:19:38 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	smart_display_move(char *move, char *next_move)
 		return (0);
 	len_move = ft_strlen(move);
 	len_next_move = ft_strlen(next_move);
-	if (move[0] == next_move[0] && len_next_move == len_move)
+	if (move[0] == next_move[0] && len_next_move == len_move && move[0] != 'p')
 	{
 		if (move[len_move - 1] == next_move[len_next_move - 1] + 1)
 			return (1);

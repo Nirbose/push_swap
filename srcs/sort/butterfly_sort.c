@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:09:42 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/14 16:30:34 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/15 16:44:48 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,30 @@
 
 static void	ft_finish_sort(t_stacks **stacks)
 {
-	int	i_n;
 	int	n;
+	int	index_of_n;
+	int	swap;
 
 	while ((*stacks)->size_b > 0)
 	{
+		swap = 0;
 		n = (*stacks)->size_b;
-		i_n = ft_find_index(n, (*stacks)->b);
-		if (i_n < (*stacks)->size_b / 2)
-			while (get_content((*stacks)->b) != (*stacks)->size_b)
-				rb(stacks);
-		else
-			while (get_content((*stacks)->b) != (*stacks)->size_b)
+		index_of_n = ft_find_index(n, (*stacks)->b);
+		while (get_content((*stacks)->b) != n)
+		{
+			if (index_of_n > n / 2)
 				rrb(stacks);
+			else
+				rb(stacks);
+			if (get_content((*stacks)->b) == n - 1 && swap == 0)
+			{
+				pa(stacks);
+				swap = 1;
+			}
+		}
 		pa(stacks);
+		if (swap == 1)
+			sa(stacks);
 	}
 }
 

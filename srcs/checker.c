@@ -6,15 +6,13 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 14:28:35 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/16 20:19:45 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/17 14:36:06 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/get_next_line.h"
 #include "../libft/includes/libft.h"
-#include "../includes/ft_parsing.h"
-#include "../includes/clean.h"
-#include "../includes/utils.h"
+#include "../includes/checker.h"
 
 static t_stacks	*ft_create_stacks(t_list *stack)
 {

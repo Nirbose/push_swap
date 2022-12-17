@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/13 13:51:26 by ltuffery          #+#    #+#              #
-#    Updated: 2022/12/16 14:32:29 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/12/17 14:37:23 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,13 @@ SRCS		=	srcs/ft_parsing.c \
 				srcs/moves/ft_push.c \
 				srcs/moves/ft_reverse.c \
 				srcs/moves/ft_rotate.c \
-				srcs/moves/ft_swap.c \
+				srcs/moves/ft_swap.c 
+
+PS_SRCS		=	srcs/push_swap.c \
 				srcs/sort/sort.c \
 				srcs/sort/small_sort.c \
 				srcs/sort/sort_utils.c \
-				srcs/sort/butterfly_sort.c
-
-PS_SRCS		=	srcs/push_swap.c \
+				srcs/sort/butterfly_sort.c \
 				$(SRCS)
 
 BONUS_SRCS	=	srcs/checker.c \

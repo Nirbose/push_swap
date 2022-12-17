@@ -6,12 +6,11 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:53:33 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/16 18:51:33 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/17 14:35:38 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include "../includes/clean.h"
 
 static void	ft_display_moves(char **moves)
 {

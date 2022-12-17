@@ -6,12 +6,11 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 12:08:23 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/16 18:51:25 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/17 14:35:41 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include "../includes/clean.h"
 
 static int	ft_isempty(char *str)
 {

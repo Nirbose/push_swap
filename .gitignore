@@ -53,6 +53,7 @@ dkms.conf
 
 # Custom
 push_swap
+checker
 *.swp
 push_swap-testeur-max
 visualizer-push-swap

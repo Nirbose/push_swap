@@ -6,13 +6,27 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 14:28:35 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/17 14:36:06 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/17 15:24:23 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/get_next_line.h"
 #include "../libft/includes/libft.h"
 #include "../includes/checker.h"
+
+static int	ft_is_sort(t_list *stack)
+{
+	while (stack != NULL)
+	{
+		if (stack->next != NULL)
+		{
+			if (ft_atoi(stack->content) > ft_atoi(stack->next->content))
+				return (0);
+		}
+		stack = stack->next;
+	}
+	return (1);
+}
 
 static t_stacks	*ft_create_stacks(t_list *stack)
 {
@@ -30,24 +44,50 @@ static t_stacks	*ft_create_stacks(t_list *stack)
 
 static int	run(char *instruction, t_stacks **stacks)
 {
-	(void)instruction;
-	return (0);
+	if (ft_strncmp(instruction, "sa", 2) == 0)
+		sa(stacks);
+	else if (ft_strncmp(instruction, "sb", 2) == 0)
+		sb(stacks);
+	else if (ft_strncmp(instruction, "ss", 2) == 0)
+		ss(stacks);
+	else if (ft_strncmp(instruction, "rra", 3) == 0)
+		rra(stacks);
+	else if (ft_strncmp(instruction, "rrb", 3) == 0)
+		rrb(stacks);
+	else if (ft_strncmp(instruction, "rrr", 3) == 0)
+		rrr(stacks);
+	else if (ft_strncmp(instruction, "ra", 2) == 0)
+		ra(stacks);
+	else if (ft_strncmp(instruction, "rb", 2) == 0)
+		rb(stacks);
+	else if (ft_strncmp(instruction, "rr", 2) == 0)
+		rr(stacks);
+	else if (ft_strncmp(instruction, "pa", 2) == 0)
+		pa(stacks);
+	else if (ft_strncmp(instruction, "pb", 2) == 0)
+		pb(stacks);
+	else
+		return (-1);
+	return (1);
 }
 
 static void	read_line(t_stacks **stacks)
 {
 	char	*line;
 
-	line = get_next_line(0);
-	while (line != NULL)
+	while (1)
 	{
-		free(line);
 		line = get_next_line(0);
+		if (line == NULL)
+			break ;
 		if (run(line, stacks) == -1)
 		{
 			ft_putendl_fd("Error", 2);
+			free(line);
+			ft_clean_all_stacks((*stacks));
 			exit(1);
 		}
+		free(line);
 	}
 }
 
@@ -65,6 +105,10 @@ int	main(int ac, char **av)
 		return (1);
 	}
 	stacks = ft_create_stacks(stack_a);
-	ft_clean_stack(stack_a);
 	read_line(&stacks);
+	if (ft_is_sort(stacks->a) && stacks->size_b == 0)
+		ft_putendl_fd("OK", 1);
+	else
+		ft_putendl_fd("KO", 1);
+	ft_clean_all_stacks(stacks);
 }

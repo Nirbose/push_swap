@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/17 14:33:08 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/17 14:39:43 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/17 17:33:53 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,8 @@ void	rr(t_stacks **stacks);
 void	rra(t_stacks **stacks);
 void	rrb(t_stacks **stacks);
 void	rrr(t_stacks **stacks);
+
+/*	UTILS	*/
+int		ft_is_sort(t_list *stack);
 
 #endif

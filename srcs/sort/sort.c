@@ -6,21 +6,21 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 16:31:05 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/17 17:33:16 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/19 18:50:53 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
+#define PIVOTDIFF 27
+
 static int	ft_find_pivot(t_stacks *stacks)
 {
 	int	pivot;
-	int	diff;
 
-	diff = 27;
-	pivot = stacks->size_a / 5 - diff;
+	pivot = stacks->size_a / 5 - PIVOTDIFF;
 	if (pivot < 0)
-		return (pivot + diff);
+		return (pivot + PIVOTDIFF);
 	else
 		return (pivot);
 }

@@ -16,7 +16,7 @@ BONUS_NAME	=	checker
 
 CC			=	clang
 
-CFLAGS		=	-Wall -Wextra -Werror -ggdb3
+CFLAGS		=	-Wall -Wextra -Werror
 
 SRCS		=	srcs/ft_parsing.c \
 				srcs/utils.c \

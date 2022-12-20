@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/13 13:51:26 by ltuffery          #+#    #+#              #
-#    Updated: 2022/12/17 14:37:23 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/12/19 18:42:32 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ BONUS_NAME	=	checker
 
 CC			=	clang
 
-CFLAGS		=	-Wall -Wextra -Werror
+CFLAGS		=	-Wall -Wextra -Werror -Ofast
 
 SRCS		=	srcs/ft_parsing.c \
 				srcs/utils.c \

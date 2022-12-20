@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   checker.c                                          :+:      :+:    :+:   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 14:28:35 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/17 17:33:22 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/20 19:04:52 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../libft/includes/get_next_line.h"
 #include "../libft/includes/libft.h"
-#include "../includes/checker.h"
+#include "../includes/checker_bonus.h"
 
 static t_stacks	*ft_create_stacks(t_list *stack)
 {
@@ -28,29 +28,29 @@ static t_stacks	*ft_create_stacks(t_list *stack)
 	return (stacks);
 }
 
-static int	run(char *instruction, t_stacks **stacks)
+static int	run(char *move, t_stacks **stacks)
 {
-	if (ft_strncmp(instruction, "sa", 2) == 0)
+	if (ft_strncmp(move, "sa", 2) == 0 && ft_strlen(move) == 2)
 		sa(stacks);
-	else if (ft_strncmp(instruction, "sb", 2) == 0)
+	else if (ft_strncmp(move, "sb", 2) == 0 && ft_strlen(move) == 2)
 		sb(stacks);
-	else if (ft_strncmp(instruction, "ss", 2) == 0)
+	else if (ft_strncmp(move, "ss", 2) == 0 && ft_strlen(move) == 2)
 		ss(stacks);
-	else if (ft_strncmp(instruction, "rra", 3) == 0)
+	else if (ft_strncmp(move, "rra", 3) == 0 && ft_strlen(move) == 3)
 		rra(stacks);
-	else if (ft_strncmp(instruction, "rrb", 3) == 0)
+	else if (ft_strncmp(move, "rrb", 3) == 0 && ft_strlen(move) == 3)
 		rrb(stacks);
-	else if (ft_strncmp(instruction, "rrr", 3) == 0)
+	else if (ft_strncmp(move, "rrr", 3) == 0 && ft_strlen(move) == 3)
 		rrr(stacks);
-	else if (ft_strncmp(instruction, "ra", 2) == 0)
+	else if (ft_strncmp(move, "ra", 2) == 0 && ft_strlen(move) == 2)
 		ra(stacks);
-	else if (ft_strncmp(instruction, "rb", 2) == 0)
+	else if (ft_strncmp(move, "rb", 2) == 0 && ft_strlen(move) == 2)
 		rb(stacks);
-	else if (ft_strncmp(instruction, "rr", 2) == 0)
+	else if (ft_strncmp(move, "rr", 2) == 0 && ft_strlen(move) == 2)
 		rr(stacks);
-	else if (ft_strncmp(instruction, "pa", 2) == 0)
+	else if (ft_strncmp(move, "pa", 2) == 0 && ft_strlen(move) == 2)
 		pa(stacks);
-	else if (ft_strncmp(instruction, "pb", 2) == 0)
+	else if (ft_strncmp(move, "pb", 2) == 0 && ft_strlen(move) == 2)
 		pb(stacks);
 	else
 		return (-1);
@@ -86,10 +86,7 @@ int	main(int ac, char **av)
 		return (0);
 	stack_a = ft_parsing(ac, av);
 	if (stack_a == NULL)
-	{
-		ft_putendl_fd("Error", 2);
 		return (1);
-	}
 	stacks = ft_create_stacks(stack_a);
 	read_line(&stacks);
 	if (ft_is_sort(stacks->a) && stacks->size_b == 0)

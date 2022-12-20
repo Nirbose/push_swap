@@ -6,7 +6,7 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 17:09:42 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/17 17:31:35 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/20 18:55:48 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,30 +67,30 @@ static void	ft_finish_sort(t_stacks **stacks)
 	}
 }
 
-void	ft_butterfly_sort(t_stacks **stacks, int pivo_a, int pivo_b)
+void	ft_butterfly_sort(t_stacks **stacks, int pivot_a, int pivot_b)
 {
-	int	pivo_save;
+	int	pivot_save;
 	int	i;
 
-	pivo_save = pivo_a;
+	pivot_save = pivot_a;
 	while ((*stacks)->size_a > 0)
 	{
 		i = 0;
-		while (i < pivo_save)
+		while (i < pivot_save)
 		{
 			if ((*stacks)->a == NULL)
 				break ;
-			if (get_content((*stacks)->a) <= pivo_a)
+			if (get_content((*stacks)->a) <= pivot_a)
 			{
 				pb(stacks);
 				i++;
-				if (get_content((*stacks)->b) > pivo_a - pivo_b)
+				if (get_content((*stacks)->b) > pivot_a - pivot_b)
 					rb(stacks);
 			}
 			else
 				ra(stacks);
 		}
-		pivo_a += pivo_save;
+		pivot_a += pivot_save;
 	}
 	ft_finish_sort(stacks);
 }

@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/13 13:51:26 by ltuffery          #+#    #+#              #
-#    Updated: 2022/12/19 18:42:32 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/12/20 18:58:33 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ PS_SRCS		=	srcs/push_swap.c \
 				srcs/sort/butterfly_sort.c \
 				$(SRCS)
 
-BONUS_SRCS	=	srcs/checker.c \
+BONUS_SRCS	=	srcs/checker_bonus.c \
 				$(SRCS)
 
 OBJS		=	$(PS_SRCS:.c=.o)

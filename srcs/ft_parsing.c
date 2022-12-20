@@ -5,87 +5,99 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/28 14:36:07 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/11/28 14:39:09 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/12/13 12:08:23 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/12/17 14:35:41 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include "../includes/push_swap.h"
 
-static int	ft_check_error(char *str)
+static int	ft_isempty(char *str)
 {
-	long	nbr;
+	char	*trim;
+	int		is_empty;
 
-	nbr = ft_atol(str);
-	if (ft_has_alpha(str) == 1 || ft_has_digit(str) == 0)
-		return (1);
-	if (ft_invalid_sign(str) == 1)
-		return (1);
-	if (nbr > 2147483647 || nbr < -2147483648)
-		return (1);
+	trim = ft_strtrim(str, " ");
+	is_empty = 0;
+	if (trim[0] == '\0')
+		is_empty = 1;
+	free(trim);
+	return (is_empty);
+}
+
+static t_list	*ft_convert_tab_to_lst(char **tab)
+{
+	t_list	*lst;
+	char	*dup;
+	int		i;
+
+	i = 1;
+	dup = ft_strdup(tab[0]);
+	if (dup == NULL)
+		return (NULL);
+	lst = ft_lstnew(dup);
+	while (tab[i] != NULL)
+	{
+		dup = ft_strdup(tab[i]);
+		if (dup == NULL)
+			return (NULL);
+		ft_lstadd_back(&lst, ft_lstnew(dup));
+		i++;
+	}
+	return (lst);
+}
+
+static int	ft_check_empty_item(int ac, char **av)
+{
+	int		i;
+
+	i = 1;
+	while (i < ac)
+	{
+		if (ft_isempty(av[i]) == 1)
+			return (1);
+		i++;
+	}
 	return (0);
 }
 
-static int	ft_error(int ac, char **av, t_list *stack)
+static char	*ft_regroup(int ac, char **av)
 {
-	int		i;
-	char	*trim;
-	int		error;
-
-	i = 1;
-	error = 0;
-	while (i < ac)
-	{
-		trim = ft_strtrim(av[i], " ");
-		if (trim[0] == '\0')
-			error = 1;
-		free(trim);
-		i++;
-	}
-	while (stack != NULL)
-	{
-		if (ft_check_error(stack->content) == 1)
-			return (1);
-		if (ft_has_duplicate(stack->content, stack->next) == 1)
-			return (1);
-		stack = stack->next;
-	}
-	return (error);
-}
-
-char	*ft_regroups(int ac, char **av)
-{
-	int		i;
-	char	*str;
 	char	*base;
+	char	*next;
+	int		i;
 
-	base = ft_calloc(1, 1);
-	if (ac == 2)
+	if (ac > 2)
 	{
-		str = ft_strdup(av[1]);
-		free(base);
-		return (str);
-	}
-	else
-	{
+		base = ft_calloc(1, 1);
 		i = 1;
 		while (i < ac)
 		{
-			str = ft_strjoin(base, av[i]);
+			next = ft_strjoin(base, av[i]);
 			free(base);
-			base = ft_strjoin(str, " ");
-			free(str);
+			if (next == NULL)
+				return (NULL);
+			base = ft_strjoin(next, " ");
+			free(next);
+			if (base == NULL)
+				return (NULL);
 			i++;
 		}
 	}
+	else
+		base = ft_strdup(av[1]);
 	return (base);
 }
 
-t_list	*ft_parsing(char *params, int ac, char **av)
+t_list	*ft_parsing(int ac, char **av)
 {
-	char	**tab;
 	t_list	*stack_a;
+	char	*params;
+	char	**tab;
 
+	params = ft_regroup(ac, av);
+	if (params == NULL)
+		return (NULL);
 	tab = ft_split(params, ' ');
 	free(params);
 	if (tab == NULL)
@@ -94,7 +106,7 @@ t_list	*ft_parsing(char *params, int ac, char **av)
 	ft_clean_tab(tab);
 	if (stack_a == NULL)
 		return (NULL);
-	if (ft_error(ac, av, stack_a) == 1)
+	if (ft_check_empty_item(ac, av) == 1 || ft_has_error(stack_a) == 1)
 	{
 		ft_putendl_fd("Error", 2);
 		ft_clean_stack(stack_a);

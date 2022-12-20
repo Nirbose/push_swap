@@ -6,7 +6,7 @@
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/03 15:46:06 by ltuffery          #+#    #+#              #
-#    Updated: 2022/11/28 13:46:48 by ltuffery         ###   ########.fr        #
+#    Updated: 2022/12/16 14:40:02 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,13 +56,15 @@ SRCS = srcs/ft_atoi.c \
 	  srcs/lst/ft_lstdelone.c \
 	  srcs/lst/ft_lstclear.c \
 	  srcs/lst/ft_lstiter.c \
-	  srcs/lst/ft_lstmap.c
+	  srcs/lst/ft_lstmap.c \
+	  srcs/gnl/get_next_line.c \
+	  srcs/gnl/get_next_line_utils.c
 
 OBJS = $(SRCS:.c=.o) 
 
 CC = clang
 
-CFLAGS = -Wall -Wextra -Werror -ggdb3
+CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 

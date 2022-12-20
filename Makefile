@@ -5,50 +5,65 @@
 #                                                     +:+ +:+         +:+      #
 #    By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/13 16:21:27 by ltuffery          #+#    #+#              #
-#    Updated: 2022/12/13 15:48:11 by ltuffery         ###   ########.fr        #
+#    Created: 2022/12/13 13:51:26 by ltuffery          #+#    #+#              #
+#    Updated: 2022/12/20 20:41:30 by ltuffery         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	push_swap
+NAME		=	push_swap
 
-CFLAGS	=	-Wall -Wextra -Werror -ggdb3
+BONUS_NAME	=	checker
 
-CC		=	clang
+CC			=	clang
 
-SRC		=	srcs/push_swap.c \
-			srcs/push_swap_utils.c \
-			srcs/ft_error.c \
-			srcs/ft_clean.c \
-			srcs/ft_conversion.c \
-			srcs/ft_sort.c \
-			srcs/ft_sort_utils.c \
-			srcs/ft_parsing.c \
-			srcs/moves/ft_push.c \
-			srcs/moves/ft_reverse.c \
-			srcs/moves/ft_rotate.c \
-			srcs/moves/ft_swap.c
+CFLAGS		=	-Wall -Wextra -Werror -Ofast
 
-OBJ 	=	$(SRC:.c=.o)
+SRCS		=	srcs/ft_parsing.c \
+				srcs/utils.c \
+				srcs/clean/ft_clean.c \
+				srcs/error/check_error.c \
+				srcs/moves/ft_push.c \
+				srcs/moves/ft_reverse.c \
+				srcs/moves/ft_rotate.c \
+				srcs/moves/ft_swap.c 
 
-TESTS 	=	tests/test_push.c
+PS_SRCS		=	srcs/push_swap.c \
+				srcs/sort/sort.c \
+				srcs/sort/small_sort.c \
+				srcs/sort/sort_utils.c \
+				srcs/sort/butterfly_sort.c \
+				$(SRCS)
 
-%.o:	%.c
+BONUS_SRCS	=	srcs/checker_bonus.c \
+				$(SRCS)
+
+OBJS		=	$(PS_SRCS:.c=.o)
+
+BONUS_OBJS	=	$(BONUS_SRCS:.c=.o)
+
+%.o:			%.c
 	$(CC) $(CFLAGS) -c $^ -o $@
 
-all:	$(NAME)
+all:		$(NAME)
 
-$(NAME):	$(OBJ)
+$(NAME):		$(OBJS)
 	make -C libft
 	$(CC) $(CFLAGS) $^ libft/libft.a -o $(NAME)
 	make fclean -C libft
 
+$(BONUS_NAME):	$(BONUS_OBJS)
+	make -C libft
+	$(CC) $(CFLAGS) $^ libft/libft.a -o $(BONUS_NAME)
+	make fclean -C libft
+
+bonus:			$(BONUS_NAME)
+
 clean:
-	rm -rf $(OBJ)
+	rm -rf $(OBJS) $(BONUS_OBJS)
 
-fclean: clean
-	rm -rf $(NAME)
+fclean:			clean
+	rm -rf $(NAME) $(BONUS_NAME)
 
-re: fclean all
+re:				fclean all
 
-.PHONY: all clean fclean re
+.PHONY:			all re clean fclean

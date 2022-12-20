@@ -6,11 +6,11 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:48:44 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/12 15:36:51 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:16:52 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	ft_push(t_list **to, t_list **in)
 {

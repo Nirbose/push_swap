@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/15 13:10:34 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/13 15:53:50 by ltuffery         ###   ########.fr       */
+/*   Created: 2022/12/13 12:11:29 by ltuffery          #+#    #+#             */
+/*   Updated: 2022/12/20 20:43:05 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,54 +18,34 @@
 typedef struct s_stacks
 {
 	t_list	*a;
-	int		size_a;
 	t_list	*b;
+	int		size_a;
 	int		size_b;
 	char	**moves;
-	int		n_items;
+	int		total_items;
 }	t_stacks;
 
-typedef struct s_pivos
-{
-	int	a;
-	int	b;
-	int	save;
-}	t_pivos;
+/*	ERROR	*/
+int		ft_has_error(t_list *lst);
 
 /*	PARSING	*/
-t_list	*ft_parsing(char *params, int ac, char **av);
-char	*ft_regroups(int ac, char **av);
-
-/*	CHECK ERROR	*/
-int		ft_has_digit(char *str);
-int		ft_has_alpha(char *str);
-int		ft_has_duplicate(char *content, t_list *stack);
-int		ft_invalid_sign(char *str);
+t_list	*ft_parsing(int ac, char **av);
 
 /*	CLEAN	*/
-void	ft_clean_stacks(t_stacks *stacks);
-void	ft_clean_stack(t_list *lst);
+void	ft_clean_stack(t_list *stack);
 void	ft_clean_tab(char **tab);
-void	del(void *content);
+void	ft_clean_all_stacks(t_stacks *stacks);
 
-/*	TRANSLATION	*/
-t_list	*ft_convert_tab_to_lst(char **tab);
+/*	SORT	*/
+void	ft_start_sort(t_stacks **stacks);
+int		ft_is_sort(t_list *stack);
+void	ft_small_sort(t_stacks **stacks);
+void	ft_butterfly_sort(t_stacks **stacks, int pivot_a, int pivot_b);
+
+/*	SORT_UTILS	*/
 void	ft_normalize(t_list **stack);
 void	ft_normalize_by_nb(t_list **stack, int nb);
-
-/*	SORT STACK	*/
-int		ft_is_sort(t_list *stack_a);
-void	ft_start_sort(t_stacks **stacks);
-void	ft_sort_three_item(t_stacks **stacks);
-void	ft_sort(t_stacks **stacks);
-void	ft_finish_sort(t_stacks **stacks);
-
-/*	SORT STACK UTILS	*/
-int		ft_find_pivot(t_stacks *stacks);
-
-/*	UTILS	*/
-int		ft_search_index(int n, t_list *stack);
-void	ft_print_stack(t_list *stack);
+int		ft_find_index(int n, t_list *stack);
 
 /*	MOVES	*/
 void	pa(t_stacks **stacks);
@@ -79,5 +59,9 @@ void	rr(t_stacks **stacks);
 void	rra(t_stacks **stacks);
 void	rrb(t_stacks **stacks);
 void	rrr(t_stacks **stacks);
+
+/*	UTILS	*/
+int		get_content(t_list *stack);
+int		smart_display_move(char *move, char *next_move);
 
 #endif

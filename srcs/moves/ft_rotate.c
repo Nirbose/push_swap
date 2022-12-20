@@ -6,11 +6,11 @@
 /*   By: ltuffery <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:03:30 by ltuffery          #+#    #+#             */
-/*   Updated: 2022/12/12 15:36:40 by ltuffery         ###   ########.fr       */
+/*   Updated: 2022/12/13 17:16:59 by ltuffery         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/push_swap.h"
+#include "../../includes/push_swap.h"
 
 static void	ft_rotate(t_list **stack)
 {
